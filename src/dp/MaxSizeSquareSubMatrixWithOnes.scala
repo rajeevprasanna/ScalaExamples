@@ -28,5 +28,5 @@ object MaxSizeSquareSubMatrixWithOnes extends App {
       }
     }
 
-  println("Max sub matrix with all ones => " + maxSizeMatrix.flatten.max)
+  println("Max sub matrix with all ones => " + maxSizeMatrix.flatten.max) 
 }

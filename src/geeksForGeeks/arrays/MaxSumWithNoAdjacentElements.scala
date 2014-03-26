@@ -58,5 +58,19 @@ object MaxSumWithNoAdjacentElements extends App {
     case _ => val maxSum = curSum.max(prevSum)    		   
     		  getMaxAlternativeElementSum(tracker+1, maxSum, prevSum+inputArray(tracker))
   }
+  println
+  
+  //Approach4: 
+  println(getMaxAlternativeElementSum(inputArray))
+  def getMaxAlternativeElementSum(input: Array[Int]): Int = {
+    val sums =
+      input.zipWithIndex.fold((0, 0)) { (acc, elem) =>
+        elem._2 % 2 match {
+          case 0 => (acc._1 + elem._1, acc._2)
+          case 1 => (acc._1, acc._2 + elem._1)
+        }
+      }
+    if (sums._1 > sums._2) sums._1 else sums._2
+  } 
   
 }
